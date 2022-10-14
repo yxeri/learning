@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useRecoilState } from 'recoil';
-import { userSelector } from './selectors';
+import { userSelector } from '../../atoms/selectors';
 
 type FormValues = {
   username: string;
@@ -12,7 +12,7 @@ type EditUsersProps = {
   userId: string;
 };
 
-function EditUser({ userId }: EditUsersProps) {
+const EditUser: React.FC<EditUsersProps> = ({ userId }) => {
   const formMethods = useForm<FormValues>();
   /**
    * useRecoilState returns the state and an updater function to update the state.
@@ -27,8 +27,6 @@ function EditUser({ userId }: EditUsersProps) {
 
   const onSubmit: SubmitHandler<FormValues> = ({ username, isAdmin }) => {
     if (username) {
-      formMethods.reset();
-
       /**
        * Call the updater function and update an existing user.
        * This will cause any components (including this one) listening to changes
@@ -37,9 +35,10 @@ function EditUser({ userId }: EditUsersProps) {
       editUser({
         username, isAdmin,
       });
-    }
 
-    return null;
+      setEditing(false);
+      formMethods.reset();
+    }
   };
 
   return (
@@ -78,6 +77,6 @@ function EditUser({ userId }: EditUsersProps) {
       )}
     </>
   );
-}
+};
 
 export default EditUser;

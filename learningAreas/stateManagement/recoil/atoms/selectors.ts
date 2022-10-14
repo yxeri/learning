@@ -1,5 +1,6 @@
 import { DefaultValue, selector, selectorFamily } from 'recoil';
-import { User, usersAtom } from './atoms';
+import usersAtom from './usersAtom';
+import { User } from '../../common/types';
 
 /**
  * A selector that derives part of the state from atoms.

@@ -1,14 +1,14 @@
 import React, { useId } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useRecoilState } from 'recoil';
-import { usersAtom } from './atoms';
+import usersAtom from '../../atoms/usersAtom';
 
 type FormValues = {
   username: string;
   isAdmin: boolean;
 };
 
-function AddUser() {
+const AddUser: React.FC = () => {
   const formMethods = useForm<FormValues>();
   /**
    * useRecoilState returns the state and an updater function to update the state.
@@ -38,23 +38,25 @@ function AddUser() {
   };
 
   return (
-    <form onSubmit={formMethods.handleSubmit(onSubmit)}>
-      <h2>Create new user</h2>
-      <div>
-        <label htmlFor="username">
-          Username
-          <input {...formMethods.register('username')} type="text" id="username" />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="isAdmin">
-          Admin?
-          <input {...formMethods.register('isAdmin')} type="checkbox" id="isAdmin" />
-        </label>
-      </div>
-      <button type="submit">Add</button>
-    </form>
+    <div>
+      <form onSubmit={formMethods.handleSubmit(onSubmit)}>
+        <h2>Create new user</h2>
+        <div>
+          <label htmlFor="username">
+            Username
+            <input {...formMethods.register('username')} type="text" id="username" />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="isAdmin">
+            Admin?
+            <input {...formMethods.register('isAdmin')} type="checkbox" id="isAdmin" />
+          </label>
+        </div>
+        <button type="submit">Add</button>
+      </form>
+    </div>
   );
-}
+};
 
 export default AddUser;
