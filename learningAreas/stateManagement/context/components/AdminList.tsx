@@ -1,11 +1,11 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext } from 'react';
 import { UsersContext } from '../UsersContext';
 import AdminItem from '../../common/components/List/AdminItem';
 import List from '../../common/components/List/List';
 
 const AdminList = () => {
   const [users] = useContext(UsersContext);
-  const admins = useMemo(() => users.filter((user) => user.isAdmin), [users]);
+  const admins = users.filter((user) => user.isAdmin);
 
   const items = admins.map((admin) => <AdminItem key={admin.id} user={admin} />);
 
