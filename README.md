@@ -8,6 +8,9 @@
 #### Introduction
 
 * [Husky](https://typicode.github.io/husky) is used to run commit linting before each commit. You have to follow the [Conventional Commit standard](https://www.conventionalcommits.org/en/v1.0.0/) to add commits.
+* [Code linting](https://en.wikipedia.org/wiki/Lint_(software)) follows the [Airbnb Style Guide](https://airbnb.io/javascript/react/). It's recommended that you install a helper in your IDE to automatically support [ESLint](https://eslint.org):
+  * Visual Studio Code: [ESLint Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+  * WebStorm
 
 ### State Management
 
