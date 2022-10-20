@@ -1,9 +1,13 @@
-## Introduction to common React libraries[](https://)
+## Introduction to common React libraries
 
 ### Getting Started
 
 - Run `yarn install` in the root of the project
 - Run `yarn dev` to start the local server that will be accessible at [http://localhost:3000](http://localhost:3000)
+
+#### Introduction
+
+* [Husky](https://typicode.github.io/husky) is used to run commit linting before each commit. You have to follow the [Conventional Commit standard](https://www.conventionalcommits.org/en/v1.0.0/) to add commits.
 
 ### State Management
 
