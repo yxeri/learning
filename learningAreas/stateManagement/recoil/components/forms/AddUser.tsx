@@ -1,5 +1,8 @@
 import React, { useId } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import {
+  SubmitHandler,
+  useForm,
+} from 'react-hook-form';
 import { useRecoilState } from 'recoil';
 import usersAtom from '../../atoms/usersAtom';
 
@@ -18,6 +21,7 @@ const AddUser: React.FC = () => {
    */
   const [users, setUsers] = useRecoilState(usersAtom);
   const id = useId();
+  const test = '';
 
   const onSubmit: SubmitHandler<FormValues> = ({ username, isAdmin }) => {
     if (username) {
